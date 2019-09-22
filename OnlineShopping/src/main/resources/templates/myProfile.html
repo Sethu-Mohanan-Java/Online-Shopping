@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
 <title>OneTech</title>
 <meta charset="utf-8">
@@ -55,12 +55,18 @@
 									</li>
 								</ul>
 							</div>
+							
 							<div class="top_bar_user">
 								<div class="user_icon"><img src="images/user.svg" alt=""></div>
 								<div><a href="#">Register</a></div>
 								<div><a href="#">Sign in</a></div>
-								<div><a href="@{/login}">MY ACCOUNT</a></div>
+								<div><a href="#">SHOPPING CART</a></div>
+								<div><a sec:authorize="isAnonymous()" th:href="@{/login}">MY ACCOUNT</a></div>
+								<div><a sec:authorize="isAuthenticated()" th:href="@{/myProfile}">MY ACCOUNT</a></div>
+								<div><a sec:authorize="isAuthenticated()" href="@{/logout}">LOGOUT</a></div>
 							</div>
+							
+							
 						</div>
 					</div>
 				</div>
